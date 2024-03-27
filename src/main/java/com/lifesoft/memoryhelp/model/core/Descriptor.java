@@ -13,6 +13,7 @@ public class Descriptor implements Serializable {
 
     public Descriptor() {
         super();
+        description = "No description";
     }
 
     public Descriptor(String descriptionText) {

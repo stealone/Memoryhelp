@@ -3,7 +3,6 @@ package com.lifesoft.memoryhelp.model.core;
 
 import com.lifesoft.memoryhelp.model.comparators.EntityComparator;
 import com.lifesoft.memoryhelp.model.comparators.EntityNameComparator;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -19,7 +18,7 @@ public class GenericEntity implements Serializable, Comparable<GenericEntity>{
 
     protected String entityName;
 
-    protected Descriptor Descriptor;
+    protected Descriptor descriptor;
 
     protected LocalDate creationDate;
 
@@ -43,13 +42,11 @@ public class GenericEntity implements Serializable, Comparable<GenericEntity>{
 
     /**
      *
-     * @param entityName
-     * @param Descriptor
      */
-    public GenericEntity(String entityName, Descriptor Descriptor) {
+    public GenericEntity(String entityName, Descriptor descriptor) {
         this();
         this.entityName = entityName;
-        this.Descriptor = Descriptor;
+        this.descriptor = descriptor;
     }
 
     /**
@@ -60,17 +57,17 @@ public class GenericEntity implements Serializable, Comparable<GenericEntity>{
     public GenericEntity(String entityName, String descriptionText) {
         this();
         this.entityName = entityName;
-        this.Descriptor = new Descriptor(descriptionText);
+        this.descriptor = new Descriptor(descriptionText);
     }
 
     /**
      *
      * @param id
      * @param entityName
-     * @param Descriptor
+     * @param descriptor
      */
-    public GenericEntity(Long id, String entityName, Descriptor Descriptor) {
-        this(entityName, Descriptor);
+    public GenericEntity(Long id, String entityName, Descriptor descriptor) {
+        this(entityName, descriptor);
         this.id = id;
     }
 
@@ -91,11 +88,11 @@ public class GenericEntity implements Serializable, Comparable<GenericEntity>{
     }
 
     public Descriptor getDescription() {
-        return Descriptor;
+        return descriptor;
     }
 
     public void setDescription(Descriptor Descriptor) {
-        this.Descriptor = Descriptor;
+        this.descriptor = Descriptor;
     }
 
     public LocalDate getCreationDate() {
@@ -185,7 +182,7 @@ public class GenericEntity implements Serializable, Comparable<GenericEntity>{
     }
 
     @Override
-    public int compareTo(@NotNull GenericEntity entity) {
+    public int compareTo(GenericEntity entity) {
         return this.entityComparator.getComparator().compare(this, entity);
     }
 }
