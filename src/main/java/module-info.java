@@ -1,5 +1,6 @@
 module com.lifesoft.memoryhelp {
     requires java.base;
+    requires java.sql;
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
